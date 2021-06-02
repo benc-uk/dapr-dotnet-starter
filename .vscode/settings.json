@@ -1,6 +1,7 @@
 {
   "[csharp]": {
     "editor.defaultFormatter": "ms-dotnettools.csharp",
+    // I don't like 4 spaces OK...
     "editor.tabSize": 2
   }
 }
