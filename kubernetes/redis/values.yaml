@@ -1,0 +1,14 @@
+# To install:
+# helm repo add bitnami https://charts.bitnami.com/bitnami
+# helm install redis bitnami/redis -f redis/values.yaml
+#
+
+# Disable cluster and replicas
+architecture: standalone
+# No password
+auth:
+  enabled: false
+# No persistence or PVC
+master:
+  persistence:
+    enabled: false

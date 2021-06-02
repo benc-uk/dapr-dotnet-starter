@@ -1,0 +1,6 @@
+POST http://localhost:5000/echo
+Content-Type: application/json
+
+{
+  "message": "Test echo"
+}

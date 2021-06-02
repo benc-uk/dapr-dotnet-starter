@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: receiver
+spec:
+  selector:
+    matchLabels:
+      app: receiver
+  template:
+    metadata:
+      labels:
+        app: receiver
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "receiver"
+        dapr.io/app-port: "5000"
+    spec:
+      containers:
+        - name: receiver
+          image: ghcr.io/benc-uk/dapr-dotnet-starter/receiver
+          # Removed  - not needed with Dapr :)
+          #ports:
+          #  - containerPort: 5000
+          resources:
+            limits:
+              memory: "100Mi"
+              cpu: "200m"

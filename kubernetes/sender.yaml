@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sender
+spec:
+  selector:
+    matchLabels:
+      app: sender
+  template:
+    metadata:
+      labels:
+        app: sender
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "sender"
+    spec:
+      containers:
+        - name: sender
+          image: ghcr.io/benc-uk/dapr-dotnet-starter/sender
+          resources:
+            limits:
+              memory: "100Mi"
+              cpu: "200m"

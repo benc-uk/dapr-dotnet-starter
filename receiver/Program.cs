@@ -16,7 +16,8 @@ namespace receiver
         {
           webBuilder
           .UseStartup<Startup>()
-          .UseUrls("http://0.0.0.0:5000");
+          // Force plain HTTP connection, and bind only to localhost
+          .UseUrls("http://127.0.0.1:5000");
         });
   }
 }
