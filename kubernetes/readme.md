@@ -5,6 +5,10 @@ Work from the the kubernetes directory
 cd kubernetes
 ```
 
+As a pre-req, make sure you have the Dapr control plane installed in your cluster  
+https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-deploy/
+
+
 ## 1️⃣ Deploy Redis
 ```
 helm repo add bitnami https://charts.bitnami.com/bitnami
