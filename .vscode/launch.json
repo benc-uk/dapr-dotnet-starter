@@ -1,0 +1,33 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "debug receiver",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build receiver",
+            "program": "${workspaceFolder}/receiver/bin/Debug/net5.0/receiver.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/receiver",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "DAPR_HTTP_PORT": "35000"
+            }
+        },
+        {
+            "name": "debug sender",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build sender",
+            "program": "${workspaceFolder}/sender/bin/Debug/net5.0/sender.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/sender",
+            "stopAtEntry": false,
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "DAPR_HTTP_PORT": "35001"
+            }
+        }
+    ]
+}
