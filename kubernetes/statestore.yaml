@@ -3,6 +3,8 @@ kind: Component
 metadata:
   name: statestore
 spec:
+  # version is required in Dapr 1.2.0
+  version: v1
   type: state.redis
   metadata:
     - name: redisHost
