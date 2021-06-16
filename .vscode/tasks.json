@@ -1,0 +1,68 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build receiver",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/receiver/receiver.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build sender",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/sender/sender.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build all",
+            "dependsOn": [
+                "build receiver",
+                "build sender"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "dapr receiver",
+            "command": "dapr",
+            "type": "process",
+            "args": [
+                "run",
+                "--app-id",
+                "receiver",
+                "--app-port",
+                "5000",
+                "--dapr-http-port",
+                "35000"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "dapr sender",
+            "command": "dapr",
+            "type": "process",
+            "args": [
+                "run",
+                "--app-id",
+                "sender",
+                "--dapr-http-port",
+                "35001"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
